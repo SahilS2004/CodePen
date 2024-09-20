@@ -162,11 +162,11 @@ body {
   /* .shirink.collap{
     display: none;
   } */
-  .code-mirror-wrapper.collap{
+  /* .code-mirror-wrapper.collap{
     display: none;
     padding: 0;
     margin: 0;
-  }
+  } */
 
   .editor-space {
     flex-direction: column;

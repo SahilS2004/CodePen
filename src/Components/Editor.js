@@ -18,6 +18,7 @@ export default function Editor(props) {
     }=props
 
     const [open, setOpen] = useState(true);
+    const [opened, setOpened] = useState(true);
 
     function handleChange(editor, data, value){
         onChange(value)
@@ -26,20 +27,26 @@ export default function Editor(props) {
         <div className={`editor ${open ? '' : 'collapsed'}`}>
             <div className='Title'>
                 {displayName}
-                <button className='code_expand' onClick={()=> setOpen(prevOpen => !prevOpen)}><FontAwesomeIcon icon={open ? faExpandAlt : faCompressAlt } /></button>
+                <div className='buttoned'>
+                    <button className='code_expand' onClick={()=> setOpen(prevOpen => !prevOpen)}><FontAwesomeIcon icon={open ? faExpandAlt : faCompressAlt } /></button>
+                    {/* <button className='responsive_button' onClick={()=> setOpened(prevOpen => !prevOpen)}><FontAwesomeIcon icon={opened ? faExpandAlt : faCompressAlt } /></button> */}
+                </div>
             </div>
+            {/* <div className={`shirink ${opened ? '' : 'collap'}`}> */}
             <ControlledEditor
                 onBeforeChange={handleChange}
                 value={value}
-                className="code-mirror-wrapper"
+                className={`code-mirror-wrapper ${opened ? 'collap' : ''}`}
                 options={{
                     lineWrapping: true,
                     lint: true,
                     mode: language,
                     theme: 'material', 
                     lineNumbers: true
+                    
                 }}
             />
+            {/* </div> */}
         </div>
 
   );

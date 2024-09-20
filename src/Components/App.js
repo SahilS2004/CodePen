@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Editor from "./Editor";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { faAngleUp, faAngleDown, faTrashCanArrowUp, faRetweet } from '@fortawesome/free-solid-svg-icons';
 import useLocalStorage from "../hooks/useLocalStorage";
 import {text_css, text_html, text_js} from "../rock paper scissors/first";
+import {Link} from 'react-router-dom';
+
+
 
 function App() {
   const [html, setHtml] = useLocalStorage('html',text_html);
@@ -32,11 +35,21 @@ function App() {
     setJs(text_js);
   };
 
+  const clearTrash = () => {
+    localStorage.clear();
+    setHtml('');
+    setCss('');
+    setJs('');
+  };
+
   return (
     <>
       <div class="navbar" fit>
-        <h2>CodePen</h2>
-        <button className="reset" onClick={handleReset}>Reset</button>
+        <Link to='/'> <h2>CodePen</h2> </Link>
+        <div>
+          <button className="reset"  id='Trash' onClick={clearTrash}><FontAwesomeIcon icon={faTrashCanArrowUp} />    Trash</button>
+          <button className="reset" onClick={handleReset}><FontAwesomeIcon icon={faRetweet} />  Reset</button>
+        </div>
       </div>
       <div className="editor-space">
         <Editor language="xml" displayName="HTML" value={html} onChange={setHtml}/>

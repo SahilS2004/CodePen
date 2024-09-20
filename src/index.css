@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  background-color: #f0f0f0;
+  background-color: hsl(0, 0%, 18%);
 }
 
 .navbar{
@@ -94,7 +94,7 @@ body {
   transition: background-color 0.2s ease-in-out;
 }
 
-.Title button:hover {
+.code_expand:hover {
   background-color: hsl(225, 6%, 30%);
 }
 
@@ -147,13 +147,30 @@ body {
   cursor: pointer;
 }
 
+.responsive_button{
+  display: none;
+}
+
 @media (max-width: 1000px) {
-  .Title button {
+  .code_expand {
     display: none;
   }
+  .responsive_button{
+    display: flex;
+  }
+
+  /* .shirink.collap{
+    display: none;
+  } */
+  .code-mirror-wrapper.collap{
+    display: none;
+    padding: 0;
+    margin: 0;
+  }
+
   .editor-space {
     flex-direction: column;
-    height: 100vh; /* Ensure it takes full height */
+    height: 100vh; 
     justify-content: flex-start;
   }
 
@@ -164,10 +181,15 @@ body {
   }
 
   .result {
-    height: 50vh; /* Adjust as needed */
+    height: 50vh; 
   }
 
   .editor.collapsed {
     flex-grow: 1;
   }
 }
+
+
+
+
+

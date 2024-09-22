@@ -12,10 +12,6 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    console.log('Email:', email, 'Password:', password);
-  };
 
   return (
     <>
@@ -27,10 +23,10 @@ export default function Login() {
       </div>
       <div className='login_body'>
       <h2>Welcome Back To .</h2>
-        <div className="logo">
+      <Link to='/'><div className="logo">
           <span>.CodePen</span>
-        </div>
-        <form onSubmit={handleLogin}>
+        </div></Link>
+        <form >
           <div className="input-group">
             <input
               type="email"

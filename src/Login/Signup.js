@@ -12,10 +12,8 @@ export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   const [name , setName] = useState('');
 
-
   const handleSignup = (e) => {
     e.preventDefault();
-    console.log('Email:', email, 'Password:', password);
   };
 
   return (
@@ -23,10 +21,10 @@ export default function Signup() {
     <div className='signup_page'>
       <div className='login_body'>
       <h2>Welcome To .</h2>
-        <div className="logo">
+        <Link to='/'><div className="logo">
           <span>.CodePen</span>
-        </div>
-        <form onSubmit={handleSignup}>
+        </div></Link>
+        <form>
           <div id='name_input' className='input-group'>
             <input type="name"
               placeholder="First Name"
@@ -80,3 +78,4 @@ export default function Signup() {
     </>
   );
 }
+

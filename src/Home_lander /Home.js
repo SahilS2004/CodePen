@@ -1,19 +1,18 @@
 import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faMailBulk, faRightToBracket, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faMailBulk, faRightToBracket, faUserPlus, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import coderImage from '../images/coder.png';
-import { faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons';
-import App from '../Components/App';
-import './home.css'
+import { faGithub, faInstagram, faCodepen } from '@fortawesome/free-brands-svg-icons';
+import './home.css';
 
 
 export default function Home() {
-    
+
   return (
     <div>
         <div class="navbar_2" fit>
-        <h2>CodePen</h2>
+        <h2><FontAwesomeIcon icon={faCodepen} className='logoo' />  CodePen</h2>
         <div>
         <Link to='/login'>
             <button className="login_logout" ><FontAwesomeIcon icon={faRightToBracket} />    Login</button>
@@ -60,3 +59,6 @@ export default function Home() {
     </div>
   )
 }
+
+
+

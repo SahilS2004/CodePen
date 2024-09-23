@@ -1,32 +1,68 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faMailBulk, faRightToBracket, faUserPlus, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { faMailBulk, faRightToBracket, faUserPlus, faSignOutAlt, faFlagCheckered} from '@fortawesome/free-solid-svg-icons';
+import { Link, useNavigate } from 'react-router-dom';
 import coderImage from '../images/coder.png';
 import { faGithub, faInstagram, faCodepen } from '@fortawesome/free-brands-svg-icons';
 import './home.css';
+import { getAuth, signOut, onAuthStateChanged } from 'firebase/auth';
 
 
 export default function Home() {
+    const [loggedInUser, setLoggedInUser] = useState(null); 
+    const navigate = useNavigate();
+    const auth = getAuth();
+    
+      useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setLoggedInUser(user);
+            } else {
+                setLoggedInUser(null);
+            }
+        });
+        return () => unsubscribe();
+    }, [auth]);
+
+    const handleLogout = () => {
+        signOut(auth)
+            .then(() => {
+                alert('Logout successful!');
+                navigate('/');
+            })
+            .catch((error) => {
+                console.error("Error logging out: ", error);
+            });
+    };
+
 
   return (
     <div>
         <div class="navbar_2" fit>
-        <h2><FontAwesomeIcon icon={faCodepen} className='logoo' />  CodePen</h2>
+        <h2><FontAwesomeIcon icon={faCodepen}/>  CodePen</h2>
         <div>
+        {loggedInUser ? (
+            <>
+              <span>Welcome,  <FontAwesomeIcon icon={faFlagCheckered}/>  User</span>
+              <button onClick={handleLogout} className='login_logout'><FontAwesomeIcon icon={faSignOutAlt}/>Logout</button>
+            </>
+          ) : (
+            <>
         <Link to='/login'>
             <button className="login_logout" ><FontAwesomeIcon icon={faRightToBracket} />    Login</button>
         </Link>
         <Link to='/signup'>
             <button className="sign_up" ><FontAwesomeIcon icon={faUserPlus} />   Sign up</button>
         </Link>
+            </>
+          )}
         </div>
         </div>
         <div className='body_home'>
             <div className='codePenHed'>
                 <p id="green">C</p><p id="white">O</p><p id="white">D</p><p id="white">E</p>
                 <div></div>
-                <p id="green">P</p><p id="white">E</p><p id="white">N</p>
+                <p id="green">P</p><p id="white">E</p><p id="white">N</p><p id="white">...</p>
             </div>
             <Link to='/code_editor'>
                 <div className='image_pro'>

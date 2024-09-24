@@ -38,7 +38,7 @@ export const text_css = `*{
 }
 #head {
     color: white;
-    background-color: rgb(0, 0, 70);
+    background-color: rgb(0, 0, 0);
     text-align: center;
     /* height: 10vh; */
     padding: 1rem;
@@ -63,7 +63,9 @@ export const text_css = `*{
     border-radius: 50%;
     width: 20vh;
     height: 20vh;
-    object-fit: cover;
+  object-fit: cover;
+  background-color: grey;
+
 }
 
 #choice :hover{
@@ -77,7 +79,8 @@ export const text_css = `*{
     justify-content: center;
     gap: 20vh;
     margin: 5vh;
-    text-align: center;
+  text-align: center;
+color: white;
 }
 
 #score .scoreb{
@@ -108,7 +111,7 @@ export const text_css = `*{
 }
 
 body {
-    background-color: antiquewhite;
+    background-color: #2c2e3a;
 
 }
 

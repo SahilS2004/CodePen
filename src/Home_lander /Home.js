@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faMailBulk, faRightToBracket, faUserPlus, faSignOutAlt, faFlagCheckered} from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
-import coderImage from '../images/coder.png';
+import coderImage from './coder.png';
 import { faGithub, faInstagram, faCodepen } from '@fortawesome/free-brands-svg-icons';
 import './home.css';
 import { getAuth, signOut, onAuthStateChanged } from 'firebase/auth';

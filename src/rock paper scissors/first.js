@@ -32,58 +32,58 @@ export const text_html = `<div id="head">
 </div>`;
 
 
-export const text_css = `*{
+export const text_css = `* {
     margin: 0px;
     padding: 0px;
 }
+
 #head {
     color: white;
     background-color: rgb(0, 0, 0);
     text-align: center;
-    /* height: 10vh; */
     padding: 1rem;
 }
-#heading{
-    font-size: 7vh ;
-} 
+
+#heading {
+    font-size: 7vh;
+}
 
 #choice {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10vh;
+    gap: 5vh;
     margin: 8vh;
 }
 
-#choice div img{
+#choice div img {
     display: flex;
     align-items: center;
     justify-content: center;
     border: none;
     border-radius: 50%;
-    width: 20vh;
-    height: 20vh;
-  object-fit: cover;
-  background-color: grey;
-
+    width: 15vh; 
+    height: 15vh;
+    object-fit: cover;
+    background-color: grey;
 }
 
-#choice :hover{
+#choice :hover {
     border: 5px solid darkblue;
     border-radius: 50%;
 }
 
-#score{
+#score {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20vh;
     margin: 5vh;
-  text-align: center;
-color: white;
+    text-align: center;
+    color: white;
 }
 
-#score .scoreb{
+#score .scoreb {
     font-size: 3vh;
     text-decoration: solid;
 }
@@ -112,19 +112,103 @@ color: white;
 
 body {
     background-color: #2c2e3a;
-
 }
 
 #reset {
     background-color: black;
     color: aqua;
     margin: 5rem;
-	padding: 0.7rem;
- 	font-size: 2rem;
-	text-decoration: solid;
-	border-radius: 1rem;
+    padding: 0.7rem;
+    font-size: 2rem;
+    text-decoration: solid;
+    border-radius: 1rem;
     border: none;
-}` ;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    #heading {
+        font-size: 6vh;
+    }
+
+    #choice {
+        gap: 4vh; 
+        margin: 6vh;
+    }
+
+    #choice div img {
+        width: 13vh; 
+        height: 13vh;
+    }
+
+    #score {
+        gap: 15vh;
+        margin: 4vh;
+    }
+}
+
+@media (max-width: 768px) {
+    #heading {
+        font-size: 5vh;
+    }
+
+    #choice {
+        gap: 3vh;
+        margin: 4vh;
+    }
+
+    #choice div img {
+        width: 10vh; 
+        height: 10vh; 
+    }
+
+    #score {
+        gap: 10vh;
+        margin: 3vh;
+    }
+
+    #score .scoreb {
+        font-size: 2.5vh;
+    }
+
+    #reset {
+        margin: 3rem;
+        padding: 0.6rem;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #heading {
+        font-size: 4vh;
+    }
+
+    #choice {
+        gap: 2vh; 
+        margin: 3vh;
+    }
+
+    #choice div img {
+        width: 8vh;
+        height: 8vh;
+    }
+
+    #score {
+        gap: 5vh;
+        margin: 2vh;
+    }
+
+    #score .scoreb {
+        font-size: 2vh;
+    }
+
+    #reset {
+        margin: 2rem;
+        padding: 0.5rem;
+        font-size: 1.2rem;
+    }
+}
+` ;
 
 
 export const text_js = `let userScore = 0 ;
